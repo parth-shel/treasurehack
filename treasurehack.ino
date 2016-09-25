@@ -49,8 +49,69 @@ double distanceCalc(double y1,double  x1, double y2, double x2)
 
 void lvl0 ()
 {
-  Serial.println(" This is level 0");
+  Serial.println(" Level 0");
       //test 
-      Serial.println(" //insert hint here");
+      Serial.println("1:55");
+      Serial.println("2:55");
+      Serial.println("3:55");
+      while (1) 
+      {
+         while(serial_connection.available())
+          {
+          gps.encode(serial_connection.read());
+          }
+        if(gps.location.isUpdated())
+          {
+           if(distanceCalc(33.7724,-84.3948, gps.location.lat(), gps.location.lng()) <= 0.00027448) {
+            Serial.println("Congratulations!");
+            Serial.println("The whistle.");
+            Serial.println("");
+            return;
+          }
+        }
+      }
 }
-
+void lvl1 ()
+{
+  Serial.println(" Level 1");
+      //test 
+      Serial.println("April 20, 1916");
+      while (1) 
+      {
+         while(serial_connection.available())
+          {
+          gps.encode(serial_connection.read());
+          }
+        if(gps.location.isUpdated())
+          {
+           if(distanceCalc(33.862100,-84.687900, gps.location.lat(), gps.location.lng()) <= 0.00027448) {
+            Serial.println("Congratulations!");
+            Serial.println("The corliss water pump.");
+            Serial.println("");
+            return;
+          }
+        }
+      }
+}
+void lvl2 ()
+{
+  Serial.println(" Level 2");
+      //test 
+      Serial.println("0x41");
+      while (1) 
+      {
+         while(serial_connection.available())
+          {
+          gps.encode(serial_connection.read());
+          }
+        if(gps.location.isUpdated())
+          {
+           if(distanceCalc(33.473152,-84.22855, gps.location.lat(), gps.location.lng()) <= 0.00027448) {
+            Serial.println("Congratulations!");
+            Serial.println("The Ramblin' Wreck");
+            Serial.println("");
+            return;
+          }
+        }
+      }
+}
